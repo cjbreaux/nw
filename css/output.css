@@ -20,6 +20,7 @@ h1 {
   position: absolute;
   bottom: 50vh;
   left: 100px;
+  animation: targetMove 4s alternate infinite;
 }
 
 .hand {
@@ -37,6 +38,15 @@ h1 {
 }
 .move {
   animation: move 2s ease forwards;
+}
+
+@keyframes targetMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(500px);
+  }
 }
 
 /*# sourceMappingURL=output.css.map */

@@ -17,34 +17,36 @@ $(document).ready(function(){
 
   $('ul').click(function(){
     $('.projectile').addClass('move');
-    newProjectile();
+    setTimeout(newProjectile, 2000);
     counter++;
-    console.log('test');
-    console.log(counter);
+    // console.log('test');
+    // console.log(counter);
 
   });
 
-  var $target = $('.target'),
-      target = $target[0],
-      targetRect = target.getBoundingClientRect();
 
-  console.log(targetRect);
 
-  function getPosition() {
+  function collision() {
     var $projectile = $('.projectile'),
     projectile = $projectile[counter-1],
     ballRect = projectile.getBoundingClientRect();
-    console.log(ballRect);
+    // console.log(ballRect);
+    var $target = $('.target'),
+    target = $target[0],
+    targetRect = target.getBoundingClientRect();
     if (targetRect.x < ballRect.x + ballRect.width &&
       targetRect.x + targetRect.width > ballRect.x &&
       targetRect.y < ballRect.y + ballRect.height &&
       targetRect.y + targetRect.height > ballRect.y) {
-        alert("collision");
+        // $(".target").remove();
+        // targetRect.height = 0;    GETS RID OF TARGET AFTER HIT
+        // targetRect.width = 0;
+        alert("test");
       }
-
   }
 
-var test = setInterval(getPosition, 500);
+var test = setInterval(collision, 500);
+
 
 
 });
