@@ -1,0 +1,27 @@
+h1 {
+  color: red;
+}
+.projectile{
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 10px solid red;
+  position: absolute;
+  bottom: 50px;
+}
+
+
+@keyframes move {
+  0%{transform: translateY(0px) scale(1);}
+  // 25%{transform: translateY(-100px);}
+  // 50%{transform: translateY(-200px);}
+  // 75%{transform: translateY(-300px);}
+  100%{transform: translateY(-800px) scale(0);}
+}
+
+
+.move{
+  animation: move 2s ease forwards;
+
+}
