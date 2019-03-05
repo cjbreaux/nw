@@ -10,6 +10,16 @@ h1 {
   border: 10px solid red;
   position: absolute;
   bottom: 50px;
+  left: 100px;
+}
+
+.target {
+  height: 200px;
+  width: 100px;
+  background-color: blue;
+  position: absolute;
+  bottom: 50vh;
+  left: 100px;
 }
 
 .hand {
