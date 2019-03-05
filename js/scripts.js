@@ -1,8 +1,19 @@
+function newProjectile() {
+  $('ul').append("<li class='projectile'>ball</li>");
+  console.log('pew')
+}
+
+
+
+
 $(document).ready(function(){
 
 
-  $('.projectile').click(function(){
+  $('ul').click(function(){
     $('.projectile').addClass('move');
+    newProjectile();
+
+
     console.log('test');
   });
 

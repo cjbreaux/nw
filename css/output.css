@@ -12,6 +12,11 @@ h1 {
   bottom: 50px;
 }
 
+.hand {
+  position: absolute;
+  bottom: 50px;
+}
+
 @keyframes move {
   0% {
     transform: translateY(0px) scale(1);
