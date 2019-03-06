@@ -13,17 +13,15 @@ function removeProjectile() {
 $(document).ready(function(){
 
 
-  $('ul').click(function(){
-    $('.projectile').addClass('move');
-    setTimeout(newProjectile, 2000);
-    setTimeout(removeProjectile, 2020);
-    counter++;
-    console.log(counter);
-    // setTimeout(removeProjectile, 1999);
-    // console.log('test');
-    // console.log(counter);
-
-  });
+  document.body.onkeyup = function(e){
+      if(e.keyCode == 32){
+        $('.projectile').addClass('move');
+        setTimeout(newProjectile, 2000);
+        setTimeout(removeProjectile, 2000);
+        counter++;
+        console.log(counter);
+      }
+  };
 
 
 
@@ -49,7 +47,7 @@ $(document).ready(function(){
       }
   }
 
-var test = setInterval(collision, 500);
+var test = setInterval(collision, 100);
 
 
 $(function () {
@@ -78,7 +76,8 @@ setInterval(function() {
         left: function(i,v) { return newh(v, 37, 39); },
         top: function(i,v) { return newv(v, 38, 40); }
     });
+    wh = pane.width() - box.width();
+    wv = pane.height() - box.height();
 }, 20);
 });
-
 });
