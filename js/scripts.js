@@ -1,18 +1,13 @@
 var counter = 0;
 
-
-
-
-
 function newProjectile() {
-  $('ul').prepend("<li class='projectile'>ball</li>");
+  $('ul').prepend("<li class='projectile' id=" + counter + ">ball</li>");
   console.log('pew')
 }
 
 function removeProjectile() {
-  $('.projectile').removeClass('projectile');
+  $("#" + (counter-1)).remove();
 }
-
 
 
 $(document).ready(function(){
@@ -21,7 +16,9 @@ $(document).ready(function(){
   $('ul').click(function(){
     $('.projectile').addClass('move');
     setTimeout(newProjectile, 2000);
+    setTimeout(removeProjectile, 2020);
     counter++;
+    console.log(counter);
     // setTimeout(removeProjectile, 1999);
     // console.log('test');
     // console.log(counter);
@@ -30,9 +27,11 @@ $(document).ready(function(){
 
 
 
+
+
   function collision() {
-    var $projectile = $('.projectile'),
-    projectile = $projectile[counter-1],
+    var $projectile =$("#" + (counter-1)),
+    projectile = $projectile[0]
     ballRect = projectile.getBoundingClientRect();
     // console.log(ballRect);
     var $target = $('.target'),
@@ -46,22 +45,29 @@ $(document).ready(function(){
         // targetRect.height = 0;    GETS RID OF TARGET AFTER HIT
         // targetRect.width = 0;
         alert("test");
-        
+
       }
   }
 
 var test = setInterval(collision, 500);
 
 
+$(function () {
 var pane = $('#wrapper'),
-    box = $('#hand'),
-    w = pane.width() - box.width(),
-    d = {},
-    x = 10;
+box = $('#hand'),
+wh = pane.width() - box.width(),
+wv = pane.height() - box.height(),
+d = {},
+x = 5;
+
+function newh(v,a,b) {
+    var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);
+    return n < 0 ? 0 : n > wh ? wh : n;
+}
 
 function newv(v,a,b) {
     var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);
-    return n < 0 ? 0 : n > w ? w : n;
+    return n < 0 ? 0 : n > wv ? wv : n;
 }
 
 $(window).keydown(function(e) { d[e.which] = true; });
@@ -69,9 +75,10 @@ $(window).keyup(function(e) { d[e.which] = false; });
 
 setInterval(function() {
     box.css({
-        left: function(i,v) { return newv(v, 37, 39); },
+        left: function(i,v) { return newh(v, 37, 39); },
         top: function(i,v) { return newv(v, 38, 40); }
     });
 }, 20);
+});
 
 });
