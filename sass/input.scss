@@ -5,20 +5,30 @@ h1 {
   text-align: center;
   height: 100px;
   width: 100px;
-  border-radius: 50%;
-  border: 10px solid red;
+  img {
+    height:100px;
+    width:100px;
+  }
   // position: relative;
   // left: 100px;
 }
+ul{
+  list-style: none;
+}
 
-.target {
+#target {
   height: 200px;
   width: 100px;
-  background-color: blue;
+
   position: absolute;
   bottom: 50vh;
   left: 100px;
-  animation: targetMove 3s alternate infinite;
+  img {
+    height: 200px;
+    width: 100px;
+    animation: wiggle .1s  alternate infinite;
+  }
+  // animation: targetMove 3s alternate infinite;
 
 }
 
@@ -39,20 +49,36 @@ h1 {
 
 @keyframes move {
   0%{transform: translateY(0px) scale(1);}
+  // 1%{transform: rotate(0deg);}
   // 25%{transform: translateY(-100px);}
   // 50%{transform: translateY(-200px);}
   // 75%{transform: translateY(-300px);}
+  // 99%{transform: rotate(720deg);}
   100%{transform: translateY(-800px) scale(0);}
 }
 
-
 .move{
-  animation: move 3s ease forwards;
-
+  animation: move 3s;
 }
+
+@keyframes rotate {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(1080deg);}
+}
+
+.rotate {
+  animation: rotate 3s;
+}
+
 @keyframes targetMove {
   0% {transform: translateX(0);}
   100% {transform: translateX(500px);}
+}
 
-
+.targetMove {
+  animation: targetMove 3s alternate infinite;
+}
+@keyframes wiggle {
+  0% {transform: rotate(5deg);}
+  100% {transform: rotate(-5deg);}
 }

@@ -1,9 +1,16 @@
 var counter = 0;
 
 function newProjectile() {
-  $('ul').prepend("<li class='projectile' id=" + counter + ">ball</li>");
+  counter++;
+  $('ul').prepend("<li class='projectile' id=" + counter + "><img src='img/fireball.png'></li>");
   console.log('pew')
 }
+
+// function restrictSpace() {
+//     if (event.keyCode == 32) {
+//         return false;
+//     }
+// }
 
 function removeProjectile() {
   $("#" + (counter-1)).remove();
@@ -16,9 +23,9 @@ $(document).ready(function(){
   document.body.onkeyup = function(e){
       if(e.keyCode == 32){
         $('.projectile').addClass('move');
+        $('ul img').addClass('rotate');
         setTimeout(newProjectile, 2000);
         setTimeout(removeProjectile, 2000);
-        counter++;
         console.log(counter);
       }
   };
@@ -28,11 +35,11 @@ $(document).ready(function(){
 
 
   function collision() {
-    var $projectile =$("#" + (counter-1)),
+    var $projectile =$("#" + (counter)),
     projectile = $projectile[0]
     ballRect = projectile.getBoundingClientRect();
     // console.log(ballRect);
-    var $target = $('.target'),
+    var $target = $('#target'),
     target = $target[0],
     targetRect = target.getBoundingClientRect();
     if (targetRect.x < ballRect.x + ballRect.width &&
@@ -42,7 +49,8 @@ $(document).ready(function(){
         // $(".target").remove();
         // targetRect.height = 0;    GETS RID OF TARGET AFTER HIT
         // targetRect.width = 0;
-        alert("test");
+        $('#target').removeClass('targetMove')
+        $('#target').addClass('magictime boingOutDown');
 
       }
   }

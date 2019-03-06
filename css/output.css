@@ -6,18 +6,27 @@ h1 {
   text-align: center;
   height: 100px;
   width: 100px;
-  border-radius: 50%;
-  border: 10px solid red;
+}
+.projectile img {
+  height: 100px;
+  width: 100px;
 }
 
-.target {
+ul {
+  list-style: none;
+}
+
+#target {
   height: 200px;
   width: 100px;
-  background-color: blue;
   position: absolute;
   bottom: 50vh;
   left: 100px;
-  animation: targetMove 3s alternate infinite;
+}
+#target img {
+  height: 200px;
+  width: 100px;
+  animation: wiggle 0.1s alternate infinite;
 }
 
 #wrapper {
@@ -44,7 +53,19 @@ h1 {
   }
 }
 .move {
-  animation: move 3s ease forwards;
+  animation: move 3s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+.rotate {
+  animation: rotate 3s;
 }
 
 @keyframes targetMove {
@@ -53,6 +74,18 @@ h1 {
   }
   100% {
     transform: translateX(500px);
+  }
+}
+.targetMove {
+  animation: targetMove 3s alternate infinite;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
   }
 }
 
