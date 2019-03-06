@@ -7,9 +7,8 @@ h1 {
   width: 100px;
   border-radius: 50%;
   border: 10px solid red;
-  position: absolute;
-  bottom: 50px;
-  left: 100px;
+  // position: relative;
+  // left: 100px;
 }
 
 .target {
@@ -23,10 +22,18 @@ h1 {
 
 }
 
-
-.hand {
+#wrapper {
+  width: 95%;
   position: absolute;
+  bottom: 10px;
+  height: 200px;
+  border: 10px solid red;
+}
+.hand {
+  position: relative;
   bottom: 50px;
+  border: 1px solid green;
+  width: 200px;
 }
 
 
@@ -35,7 +42,7 @@ h1 {
   // 25%{transform: translateY(-100px);}
   // 50%{transform: translateY(-200px);}
   // 75%{transform: translateY(-300px);}
-  100%{transform: translateY(-800px) scale(0);}
+  100%{transform: translateY(-800px) scale(0.2);}
 }
 
 

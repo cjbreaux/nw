@@ -8,9 +8,6 @@ h1 {
   width: 100px;
   border-radius: 50%;
   border: 10px solid red;
-  position: absolute;
-  bottom: 50px;
-  left: 100px;
 }
 
 .target {
@@ -23,9 +20,19 @@ h1 {
   animation: targetMove 4s alternate infinite;
 }
 
-.hand {
+#wrapper {
+  width: 95%;
   position: absolute;
+  bottom: 10px;
+  height: 200px;
+  border: 10px solid red;
+}
+
+.hand {
+  position: relative;
   bottom: 50px;
+  border: 1px solid green;
+  width: 200px;
 }
 
 @keyframes move {
@@ -33,7 +40,7 @@ h1 {
     transform: translateY(0px) scale(1);
   }
   100% {
-    transform: translateY(-800px) scale(0);
+    transform: translateY(-800px) scale(0.2);
   }
 }
 .move {
