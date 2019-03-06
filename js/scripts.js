@@ -2,7 +2,7 @@ var counter = 0;
 
 function newProjectile() {
   counter++;
-  $('ul').prepend("<li class='projectile' id=" + counter + "><img src='img/fireball.png'></li>");
+  $('.hand ul').prepend("<li class='projectile' id=" + counter + "><img src='img/fireball.png'></li>");
   console.log('pew')
 }
 
@@ -22,13 +22,47 @@ $(document).ready(function(){
 
   document.body.onkeyup = function(e){
       if(e.keyCode == 32){
+        $('.projectile').appendTo(".thrower ul")
         $('.projectile').addClass('move');
         $('ul img').addClass('rotate');
         setTimeout(newProjectile, 2000);
         setTimeout(removeProjectile, 2000);
+        moveBox();
         console.log(counter);
+        console.log(moveBox());
       }
   };
+
+function getLeftBox(){
+  var $handBox = $('#hand');
+  handBox = $handBox[0];
+  handRect = handBox.getBoundingClientRect();
+  handLeft = handRect.left;
+  // console.log(handTop);
+  return handLeft;
+}
+
+function getTopBox(){
+  var $handBox = $('#hand');
+  handBox = $handBox[0];
+  handRect = handBox.getBoundingClientRect();
+  handTop = handRect.top;
+  // console.log(handTop);
+  return handTop;
+}
+
+function moveBox () {
+  var handLeft = getLeftBox();
+  var handTop = getTopBox();
+  var moveTest = $('.thrower');
+  moveTest.css('position','absolute');
+  moveTest.css('left', handLeft + 'px');
+  moveTest.css('top', handTop + 'px');
+
+}
+
+
+
 
 
 
@@ -55,37 +89,38 @@ $(document).ready(function(){
       }
   }
 
-var test = setInterval(collision, 100);
+  var test = setInterval(collision, 100);
 
 
-$(function () {
-var pane = $('#wrapper'),
-box = $('#hand'),
-wh = pane.width() - box.width(),
-wv = pane.height() - box.height(),
-d = {},
-x = 5;
+  $(function () {
+  var pane = $('#wrapper'),
+  box = $('#hand'),
+  wh = pane.width() - box.width(),
+  wv = pane.height() - box.height(),
+  d = {},
+  x = 5;
 
-function newh(v,a,b) {
-    var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);
-    return n < 0 ? 0 : n > wh ? wh : n;
-}
+  function newh(v,a,b) {
+      var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);
+      return n < 0 ? 0 : n > wh ? wh : n;
+  }
 
-function newv(v,a,b) {
-    var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);
-    return n < 0 ? 0 : n > wv ? wv : n;
-}
+  function newv(v,a,b) {
+      var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);
+      return n < 0 ? 0 : n > wv ? wv : n;
+  }
 
-$(window).keydown(function(e) { d[e.which] = true; });
-$(window).keyup(function(e) { d[e.which] = false; });
+  $(window).keydown(function(e) { d[e.which] = true; });
+  $(window).keyup(function(e) { d[e.which] = false; });
 
-setInterval(function() {
-    box.css({
-        left: function(i,v) { return newh(v, 37, 39); },
-        top: function(i,v) { return newv(v, 38, 40); }
-    });
-    wh = pane.width() - box.width();
-    wv = pane.height() - box.height();
-}, 20);
-});
+  setInterval(function() {
+      box.css({
+          left: function(i,v) { return newh(v, 37, 39); },
+          top: function(i,v) { return newv(v, 38, 40); }
+      });
+      wh = pane.width() - box.width();
+      wv = pane.height() - box.height();
+  }, 20);
+  });
+
 });

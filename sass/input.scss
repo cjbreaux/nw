@@ -46,6 +46,9 @@ ul{
   width: 200px;
 }
 
+.thrower {
+  border: 1px solid blue;
+}
 
 @keyframes move {
   0%{transform: translateY(0px) scale(1);}
