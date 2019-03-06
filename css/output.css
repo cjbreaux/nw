@@ -29,6 +29,15 @@ ul {
   animation: wiggle 0.1s alternate infinite;
 }
 
+.targetDrop {
+  height: 200px;
+  width: 100px;
+}
+.targetDrop img {
+  height: 200px;
+  width: 100px;
+}
+
 #wrapper {
   width: 95%;
   position: absolute;
@@ -42,10 +51,6 @@ ul {
   bottom: 50px;
   border: 1px solid green;
   width: 200px;
-}
-
-.thrower {
-  border: 1px solid blue;
 }
 
 @keyframes move {

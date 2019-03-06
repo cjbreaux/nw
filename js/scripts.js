@@ -28,6 +28,7 @@ $(document).ready(function(){
         setTimeout(newProjectile, 2000);
         setTimeout(removeProjectile, 2000);
         moveBox();
+
         console.log(counter);
         console.log(moveBox());
       }
@@ -61,7 +62,33 @@ function moveBox () {
 
 }
 
+function getLeftTarget(){
+  var $targetBox = $('#target');
+  targetBox = $targetBox[0];
+  targetRect = targetBox.getBoundingClientRect();
+  targetLeft = targetRect.left;
+  // console.log(targetTop);
+  return targetLeft;
+}
 
+function getTopTarget(){
+  var $targetBox = $('#target');
+  targetBox = $targetBox[0];
+  targetRect = targetBox.getBoundingClientRect();
+  targetTop = targetRect.top;
+  // console.log(targetTop);
+  return targetTop;
+}
+
+function moveTarget () {
+  var targetLeft = getLeftTarget();
+  var targetTop = getTopTarget();
+  var moveTest = $('.targetDrop');
+  moveTest.css('position','absolute');
+  moveTest.css('left', targetLeft + 'px');
+  moveTest.css('top', targetTop + 'px');
+
+}
 
 
 
@@ -83,9 +110,10 @@ function moveBox () {
         // $(".target").remove();
         // targetRect.height = 0;    GETS RID OF TARGET AFTER HIT
         // targetRect.width = 0;
-        $('#target').removeClass('targetMove')
-        $('#target').addClass('magictime boingOutDown');
-
+        moveTarget();
+        $('.targetDrop').append('<img src=img/dude.png>')
+        $('.targetDrop').addClass('magictime boingOutDown');
+        $('#target').remove();
       }
   }
 
