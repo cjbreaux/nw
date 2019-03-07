@@ -90,9 +90,46 @@ function moveTarget () {
 
 }
 
+function getLeftTarget2(){
+  var $targetBox = $('#target2');
+  targetBox = $targetBox[0];
+  targetRect = targetBox.getBoundingClientRect();
+  targetLeft = targetRect.left;
+  // console.log(targetTop);
+  return targetLeft;
+}
+
+function getTopTarget2(){
+  var $targetBox = $('#target2');
+  targetBox = $targetBox[0];
+  targetRect = targetBox.getBoundingClientRect();
+  targetTop = targetRect.top;
+  // console.log(targetTop);
+  return targetTop;
+}
+
+function moveTarget2() {
+  var targetLeft = getLeftTarget2();
+  var targetTop = getTopTarget2();
+  var moveTest = $('.targetDrop2');
+  moveTest.css('position','absolute');
+  moveTest.css('left', targetLeft + 'px');
+  moveTest.css('top', targetTop + 'px');
+
+}
 
 
+function newGuy() {
+  $('#target').show();
+  $('.targetDrop').removeClass('magictime boingOutDown');
+  $('.targetDrop').empty();
+}
 
+function newGuy2() {
+  $('#target2').show();
+  $('.targetDrop2').removeClass('magictime boingOutDown');
+  $('.targetDrop2').empty();
+}
 
 
   function collision() {
@@ -111,13 +148,40 @@ function moveTarget () {
         // targetRect.height = 0;    GETS RID OF TARGET AFTER HIT
         // targetRect.width = 0;
         moveTarget();
-        $('.targetDrop').append('<img src=img/dude.png>')
-        $('.targetDrop').addClass('magictime boingOutDown');
-        $('#target').remove();
+        $('.targetDrop').append('<img class="magictime boingOutDown" src=img/wholeBlueMan.png>')
+        $('.targetDrop').append('<img class="magictime puffOut" id="sizer" src=img/fire-exp.png>')
+        $('#target').hide();
+        setTimeout(newGuy, 2000);
       }
   }
 
   var test = setInterval(collision, 100);
+
+  function collision2() {
+    var $projectile =$("#" + (counter)),
+    projectile = $projectile[0]
+    ballRect = projectile.getBoundingClientRect();
+    // console.log(ballRect);
+    var $target = $('#target2'),
+    target = $target[0],
+    targetRect = target.getBoundingClientRect();
+    if (targetRect.x < ballRect.x + ballRect.width &&
+      targetRect.x + targetRect.width > ballRect.x &&
+      targetRect.y < ballRect.y + ballRect.height &&
+      targetRect.y + targetRect.height > ballRect.y) {
+        // $(".target").remove();
+        // targetRect.height = 0;    GETS RID OF TARGET AFTER HIT
+        // targetRect.width = 0;
+        moveTarget2();
+        $('.targetDrop2').append('<img class="magictime boingOutDown" src=img/wholePinkMan.png>')
+        $('.targetDrop2').append('<img class="magictime puffOut" id="sizer" src=img/fire-exp.png>')
+        $('#target2').hide();
+
+        setTimeout(newGuy2, 2000);
+      }
+  }
+
+  var test = setInterval(collision2, 100);
 
 
   $(function () {

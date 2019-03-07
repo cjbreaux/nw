@@ -23,24 +23,95 @@ ul {
 
 #target {
   height: 200px;
-  width: 100px;
+  width: 150px;
+  animation: targetMove 3s linear alternate infinite;
   position: absolute;
   bottom: 50vh;
   left: 100px;
 }
 #target img {
   height: 200px;
-  width: 100px;
-  animation: wiggle 0.1s alternate infinite;
+  width: 150px;
+}
+#target #leftarm {
+  position: absolute;
+  height: 60%;
+  width: 30%;
+  top: 105px;
+  left: 50px;
+  z-index: 5;
+  animation: armMove 0.75s linear alternate-reverse infinite;
+}
+#target #rightarm {
+  position: absolute;
+  height: 60%;
+  width: 30%;
+  top: 105px;
+  left: 60px;
+  z-index: -5;
+  animation: armMove 0.75s linear alternate infinite;
+}
+#target #wheel {
+  position: absolute;
+  height: 130px;
+  width: 130px;
+  left: 9px;
+  top: 150px;
+  animation: rotate 3s linear alternate infinite;
 }
 
-.targetDrop {
+#target2 {
   height: 200px;
-  width: 100px;
+  width: 150px;
+  animation: targetMove 3s linear alternate-reverse infinite;
+  position: absolute;
+  bottom: 35vh;
+  left: 100px;
 }
-.targetDrop img {
+#target2 img {
   height: 200px;
-  width: 100px;
+  width: 150px;
+}
+#target2 #leftarm2 {
+  position: absolute;
+  height: 60%;
+  width: 30%;
+  top: 105px;
+  left: 50px;
+  z-index: 5;
+  animation: armMove 0.75s linear alternate-reverse infinite;
+}
+#target2 #rightarm2 {
+  position: absolute;
+  height: 60%;
+  width: 30%;
+  top: 105px;
+  left: 60px;
+  z-index: -5;
+  animation: armMove 0.75s linear alternate infinite;
+}
+#target2 #wheel2 {
+  position: absolute;
+  height: 130px;
+  width: 130px;
+  left: 9px;
+  top: 150px;
+  animation: rotate 3s linear alternate-reverse infinite;
+}
+
+.targetDrop, .targetDrop2 {
+  height: 300px;
+  width: 250px;
+}
+.targetDrop img, .targetDrop2 img {
+  height: 250px;
+  width: 180px;
+  position: absolute;
+}
+.targetDrop #sizer, .targetDrop2 #sizer {
+  height: 40%;
+  width: 40%;
+  position: absolute;
 }
 
 #wrapper {
@@ -88,17 +159,29 @@ ul {
     transform: translateX(1500px);
   }
 }
-.targetMove {
-  animation: targetMove 3s alternate infinite;
+@keyframes armMove {
+  from {
+    transform: rotate(80deg);
+    transform-origin: center top;
+  }
+  to {
+    transform: rotate(-90deg);
+    transform-origin: center top;
+  }
 }
-
-@keyframes wiggle {
+@keyframes fireball {
   0% {
-    transform: rotate(5deg);
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(8);
   }
   100% {
-    transform: rotate(-5deg);
+    transform: scale(0);
   }
+}
+.fireball {
+  animation: fireball 0.5s linear;
 }
 
 /*# sourceMappingURL=output.css.map */
