@@ -1,10 +1,61 @@
+
+
+@font-face {
+  font-family: AlienItalic;
+  src: url("../fonts/Alien-Encounters-Bold-Italic.ttf");
+}
+
+@font-face {
+  font-family: AlienRegular;
+  src: url("../fonts/Alien-Encounters-Solid-Regular.ttf");
+}
+
+
+
+
 html {
   background: url("../img/background.png") no-repeat center left fixed;
   background-size: cover;
 }
 
-h1 {
-  color: red;
+.start {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  position: absolute;
+  img {
+    opacity: .7;
+  }
+  button {
+    position: absolute;
+    z-index: 15;
+    top: 60vh;
+    left: 50vw;
+    font-size: 4em;
+    border-radius: 1rem;
+    font-family: AlienRegular;
+    height: 5%;
+  }
+  h3 {
+    position: absolute;
+    top: 53vh;
+    left: 37vw;
+    color: white;
+    z-index: 15;
+  }
+}
+
+.title {
+  position: absolute;
+  left: 40vw;
+  top: 10vh;
+  img {
+    height: 30%;
+    width: 30%;
+  }
 }
 .projectile{
   text-align: center;
