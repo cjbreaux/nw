@@ -126,7 +126,7 @@ function moveTarget () {
   wh = pane.width() - box.width(),
   wv = pane.height() - box.height(),
   d = {},
-  x = 5;
+  x = 15;
 
   function newh(v,a,b) {
       var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);

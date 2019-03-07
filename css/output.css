@@ -1,3 +1,8 @@
+html {
+  background: url("../img/background.png") no-repeat center left fixed;
+  background-size: cover;
+}
+
 h1 {
   color: red;
 }
@@ -43,13 +48,11 @@ ul {
   position: absolute;
   bottom: 10px;
   height: 200px;
-  border: 10px solid red;
 }
 
 .hand {
   position: relative;
   bottom: 50px;
-  border: 1px solid green;
   width: 200px;
 }
 
@@ -82,7 +85,7 @@ ul {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(500px);
+    transform: translateX(1500px);
   }
 }
 .targetMove {
