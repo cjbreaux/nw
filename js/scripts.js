@@ -6,11 +6,6 @@ function newProjectile() {
   console.log('pew')
 }
 
-// function restrictSpace() {
-//     if (event.keyCode == 32) {
-//         return false;
-//     }
-// }
 
 function removeProjectile() {
   $("#" + (counter-1)).remove();
