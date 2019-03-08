@@ -19,9 +19,6 @@ html {
 }
 
 .start {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   height: 100vh;
   width: 100vw;
   z-index: 10;
@@ -51,10 +48,12 @@ html {
 .title {
   position: absolute;
   left: 40vw;
-  top: 10vh;
+  top: 30vh;
   img {
-    height: 30%;
-    width: 30%;
+    height: 50%;
+    width: 50%;
+    z-index: 25;
+    top: 15vh;
   }
 }
 .projectile{
@@ -222,13 +221,28 @@ ul{
   to {transform: rotate(-90deg); transform-origin: center top;}
 }
 
-@keyframes fireball {
-  0% {transform: scale(0);}
-  50%{transform: scale(8);}
-  100%{transform: scale(0);}
+@keyframes logo {
+  0%{transform: scale(1) translateY(0px) translateX(0px);}
+  50%{transform: scale(2.7) translateY(0px) translateX(0px);}
+  75%{transform: scale(2.7) translateY(0px) translateX(0px);}
+  100%{transform: scale(.8) translateY(-350px) translateX(400px);}
 }
 
-.fireball {
-  animation: fireball .5s linear;
+.logo {
+  animation: logo 3s forwards;
+}
 
+@keyframes logoRotate {
+  0%{transform: rotate(0deg);transform-origin: bottom;}
+  50%{transform: rotate(0deg);transform-origin: bottom;}
+  75%{transform: rotate(0deg);transform-origin: bottom;}
+  100%{transform: rotate(720deg);transform-origin: bottom;}
+}
+
+.logoRotate {
+    animation: logoRotate 3s;
+}
+
+.toHide {
+  display: none;
 }

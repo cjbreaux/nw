@@ -41,11 +41,13 @@ html {
 .title {
   position: absolute;
   left: 40vw;
-  top: 10vh;
+  top: 30vh;
 }
 .title img {
-  height: 30%;
-  width: 30%;
+  height: 50%;
+  width: 50%;
+  z-index: 25;
+  top: 15vh;
 }
 
 .projectile {
@@ -210,19 +212,48 @@ ul {
     transform-origin: center top;
   }
 }
-@keyframes fireball {
+@keyframes logo {
   0% {
-    transform: scale(0);
+    transform: scale(1) translateY(0px) translateX(0px);
   }
   50% {
-    transform: scale(8);
+    transform: scale(2.7) translateY(0px) translateX(0px);
+  }
+  75% {
+    transform: scale(2.7) translateY(0px) translateX(0px);
   }
   100% {
-    transform: scale(0);
+    transform: scale(0.8) translateY(-350px) translateX(400px);
   }
 }
-.fireball {
-  animation: fireball 0.5s linear;
+.logo {
+  animation: logo 3s forwards;
+}
+
+@keyframes logoRotate {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: bottom;
+  }
+  50% {
+    transform: rotate(0deg);
+    transform-origin: bottom;
+  }
+  75% {
+    transform: rotate(0deg);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: rotate(720deg);
+    transform-origin: bottom;
+  }
+}
+.logoRotate {
+  animation: logoRotate 3s;
+}
+
+.toHide {
+  display: none;
 }
 
 /*# sourceMappingURL=output.css.map */

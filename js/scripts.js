@@ -16,8 +16,19 @@ function removeProjectile() {
   $("#" + (counter-1)).remove();
 }
 
+function showMe() {
+  $('.toHide').show();
+}
+
 
 $(document).ready(function(){
+
+  $('button').click(function(){
+    $('.title img').addClass('logo');
+    $('.title').addClass('logoRotate');
+    $('.start-screen').hide();
+    setTimeout(showMe, 3000);
+  })
 
 
   document.body.onkeyup = function(e){
